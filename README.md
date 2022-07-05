@@ -1,58 +1,61 @@
-# Express OpenID Connect Webapp Sample
+# 01-Login
 
-This sample demonstrates authentication for an Express Node.js app. The sample quickly shows how to log in, log out, and view profile information of the logged-in user.
+## Running the Sample
 
-See a detailed walk-through of this sample app on the [Express Quickstart](https://auth0.com/docs/quickstart/webapp/express).
-
-## Running This Sample Locally
-
-1. Install the dependencies with npm:
+Install the dependencies.
 
 ```bash
 npm install
 ```
 
-
-2. Rename `.env.example` to `.env` and replace or check the following values. 
-
-> ⚠️ Note: If you downloaded this sample app directly from Auth0 Manage Dashboard, or from Auth0 Docs _and_ you chose the Auth0 application you're creating this sample for, then you can check these are configured already: 
-
-- `CLIENT_ID` - your Auth0 application client id
-- `ISSUER_BASE_URL` - absolute URL to your Auth0 application domain (ie: `https://accountName.auth0.com`)
-- `APP_SESSION_SECRET` - a randomly rengerated string. You can generate one on the command line with the following `openssl rand -hex 32`
+Rename `.env.example` to `.env` and replace the values for `AUTH0_CLIENT_ID`, `AUTH0_DOMAIN`, and `AUTH0_CLIENT_SECRET` with your Auth0 credentials. If you don't yet have an Auth0 account, [sign up](https://auth0.com/signup) for free.
 
 ```bash
-mv .env.example .env
+# copy configuration and replace with your own
+cp .env.example .env
 ```
 
-3. Run the sample app:
+If you're using a hosting provider that uses a proxy in front of Node.js, comment in the `trust proxy` configuration in [app.js](https://github.com/auth0-samples/auth0-nodejs-webapp-sample/blob/812bb41fa655a1178f6a33ba54b0aee2397b1917/01-Login/app.js#L63-L70). This is a [`express-session` configuration setting](https://www.npmjs.com/package/express-session#cookiesecure) that allows for trusting this first proxy.
+
+Run the app.
 
 ```bash
 npm start
 ```
 
-The sample app will be served at `localhost:3000`.
+The app will be served at `localhost:3000`.
 
-## Support + Feedback
+## Running the Sample With Docker
 
-Please use the [Issues queue](https://github.com/auth0-samples/auth0-express-webapp-sample/issues) in this repo for questions and feedback.
+In order to run the example with docker you need to have `docker` installed.
 
-## Vulnerability Reporting
+You also need to set the environment variables as explained [previously](#running-the-sample).
 
-Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
+Execute in command line `sh exec.sh` to run the Docker in Linux, or `.\exec.ps1` to run the Docker in Windows.
 
 ## What is Auth0?
 
-Auth0 helps you to easily:
+Auth0 helps you to:
 
-- implement authentication with multiple identity providers, including social (e.g., Google, Facebook, Microsoft, LinkedIn, GitHub, Twitter, etc), or enterprise (e.g., Windows Azure AD, Google Apps, Active Directory, ADFS, SAML, etc.)
-- log in users with username/password databases, passwordless, or multi-factor authentication
-- link multiple user accounts together
-- generate signed JSON Web Tokens to authorize your API calls and flow the user identity securely
-- access demographics and analytics detailing how, when, and where users are logging in
-- enrich user profiles from other data sources using customizable JavaScript rules
+* Add authentication with [multiple authentication sources](https://auth0.com/docs/identityproviders), either social like **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce, among others**, or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS or any SAML Identity Provider**.
+* Add authentication through more traditional **[username/password databases](https://auth0.com/docs/mysql-connection-tutorial)**.
+* Add support for **[linking different user accounts](https://auth0.com/docs/link-accounts)** with the same user.
+* Support for generating signed [Json Web Tokens](https://auth0.com/docs/jwt) to call your APIs and **flow the user identity** securely.
+* Analytics of how, when and where users are logging in.
+* Pull data from other sources and add it to the user profile, through [JavaScript rules](https://auth0.com/docs/rules).
 
-[Why Auth0?](https://auth0.com/why-auth0)
+## Create a free account in Auth0
+
+1. Go to [Auth0](https://auth0.com) and click Sign Up.
+2. Use Google, GitHub or Microsoft Account to login.
+
+## Issue Reporting
+
+If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
+
+## Author
+
+[Auth0](https://auth0.com)
 
 ## License
 
